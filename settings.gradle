@@ -1,0 +1,6 @@
+rootProject.name = 'Roll-the-dice'
+include 'common'
+include 'integration'
+include 'impl'
+include 'contract'
+
