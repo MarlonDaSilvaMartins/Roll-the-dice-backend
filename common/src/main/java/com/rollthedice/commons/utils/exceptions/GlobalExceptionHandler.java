@@ -38,7 +38,7 @@ public class GlobalExceptionHandler {
         return ErrorResponse.builder()
                 .timestamp(LocalDateTime.now())
                 .error(List.of(ErrorObject.builder()
-                        .message("Artist not found")
+                        .message("Data not found")
                         .field(exception.getMessage())
                         .parameter(exception.getClass().getSimpleName())
                         .build()))
