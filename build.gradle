@@ -35,18 +35,20 @@ allprojects {
     sourceCompatibility = '17'
 
     dependencies {
+        implementation 'org.mapstruct:mapstruct:1.5.2.Final'
         implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
         implementation 'org.springframework.boot:spring-boot-starter-validation'
         implementation 'org.springframework.boot:spring-boot-starter-webflux'
-        implementation 'org.springframework.cloud:spring-cloud-starter-config'
         compileOnly 'org.projectlombok:lombok'
+        compileOnly 'org.mapstruct:mapstruct:1.5.1.Final'
         annotationProcessor 'org.projectlombok:lombok'
+        annotationProcessor "org.projectlombok:lombok-mapstruct-binding:0.2.0"
+        annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.1.Final'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         testImplementation 'io.projectreactor:reactor-test'
         implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
         implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
-        testImplementation 'org.mock-server:mockserver-netty:5.13.2'
-        testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo:3.4.5'
+//        testImplementation 'org.mock-server:mockserver-netty:5.13.2'
     }
 
     ext {
