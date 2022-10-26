@@ -1,4 +1,4 @@
-package com.rollthedice.contract.v1.character.model.response;
+package com.rollthedice.impl.character.model.request;
 
 import com.rollthedice.commons.utils.enums.ClassTypeEnum;
 import com.rollthedice.commons.utils.enums.RaceTypeEnum;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Data
-public class CharacterContractResponse {
+public class CharacterUpdateImplRequest {
     private String id;
     private String name;
     private ClassTypeEnum characterClass;

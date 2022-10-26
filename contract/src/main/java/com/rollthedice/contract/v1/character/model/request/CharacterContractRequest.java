@@ -18,9 +18,7 @@ import lombok.NoArgsConstructor;
 public class CharacterContractRequest {
     @NotBlank
     private String name;
-    @NotBlank
     private ClassTypeEnum characterClass;
-    @NotBlank
     private RaceTypeEnum race;
     @Positive
     @Builder.Default
