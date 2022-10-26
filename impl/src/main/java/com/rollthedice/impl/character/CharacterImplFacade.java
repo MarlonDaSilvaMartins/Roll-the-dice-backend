@@ -20,7 +20,7 @@ public class CharacterImplFacade {
         return characterImplService.getCharacter();
     }
 
-    public Mono<CharacterImplResponse> getCharacterById(Integer characterId) {
+    public Mono<CharacterImplResponse> getCharacterById(String characterId) {
         return characterImplService.getCharacterById(characterId);
     }
 
@@ -32,7 +32,7 @@ public class CharacterImplFacade {
         return characterImplService.updateCharacter(characterUpdateImplRequest);
     }
 
-    public Mono<Void> deleteCharacter(Integer characterId) {
+    public Mono<Void> deleteCharacter(String characterId) {
         return characterImplService.deleteCharacter(characterId);
     }
 }

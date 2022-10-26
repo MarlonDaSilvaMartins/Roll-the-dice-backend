@@ -24,7 +24,7 @@ public class CharacterImplService {
                 .map(CharacterEntityToImplResponseMapper::mapFrom);
     }
 
-    public Mono<CharacterImplResponse> getCharacterById(Integer characterId) {
+    public Mono<CharacterImplResponse> getCharacterById(String characterId) {
         return characterRepository.findById(characterId)
                 .map(CharacterEntityToImplResponseMapper::mapFrom);
     }
@@ -52,7 +52,7 @@ public class CharacterImplService {
                 .map(CharacterEntityToImplResponseMapper::mapFrom);
     }
 
-    public Mono<Void> deleteCharacter(Integer characterId) {
+    public Mono<Void> deleteCharacter(String characterId) {
         return characterRepository.deleteById(characterId);
     }
 }

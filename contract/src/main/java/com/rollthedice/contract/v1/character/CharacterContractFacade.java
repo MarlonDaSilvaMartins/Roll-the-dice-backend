@@ -23,7 +23,7 @@ public class CharacterContractFacade {
                 .map(CharacterImplToContractResponseMapper::mapFrom);
     }
 
-    public Mono<CharacterContractResponse> getCharacterById(Integer characterId) {
+    public Mono<CharacterContractResponse> getCharacterById(String characterId) {
         return characterImplFacade.getCharacterById(characterId)
                 .map(CharacterImplToContractResponseMapper::mapFrom);
     }
@@ -38,7 +38,7 @@ public class CharacterContractFacade {
                 .map(CharacterImplToContractResponseMapper::mapFrom);
     }
 
-    public Mono<Void> deleteCharacter(Integer characterId) {
+    public Mono<Void> deleteCharacter(String characterId) {
         return characterImplFacade.deleteCharacter(characterId);
     }
 }

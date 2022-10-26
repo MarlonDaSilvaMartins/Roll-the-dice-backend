@@ -1,5 +1,7 @@
 package com.rollthedice.contract.v1.character;
 
+import javax.validation.Valid;
+
 import com.rollthedice.contract.v1.character.annotation.swagger.*;
 import com.rollthedice.contract.v1.character.model.request.CharacterContractRequest;
 import com.rollthedice.contract.v1.character.model.request.CharacterUpdateContractRequest;
@@ -17,36 +19,43 @@ import reactor.core.publisher.Mono;
 public class CharacterRestController {
     
     private final CharacterContractFacade characterContractFacade;
-
+    
     @GetMapping
     @GetCharactersSwagger
     public Flux<CharacterContractResponse> getCharacter() {
         return characterContractFacade.getCharacter();
     }
-
-    @GetMapping("/characterId")
+    
+    @GetMapping("/{characterId}")
     @GetCharacterByIdSwagger
-    public Mono<CharacterContractResponse> getCharacterById(@PathVariable Integer characterId) {
+    public Mono<CharacterContractResponse> getCharacterById(
+        @PathVariable
+        String characterId) {
         return characterContractFacade.getCharacterById(characterId);
     }
-
+    
     @PostMapping
     @CreateCharacterSwagger
     public Mono<CharacterContractResponse> createCharacter(
         @RequestBody
-            CharacterContractRequest characterContractRequest) {
+        @Valid
+        CharacterContractRequest characterContractRequest) {
         return characterContractFacade.createCharacter(characterContractRequest);
     }
-
-    @PatchMapping("characterId")
+    
+    @PutMapping
     @UpdateCharacterSwagger
-    public Mono<CharacterContractResponse> updateCharacter(CharacterUpdateContractRequest characterUpdateRequest) {
+    public Mono<CharacterContractResponse> updateCharacter(
+        @RequestBody
+        @Valid CharacterUpdateContractRequest characterUpdateRequest) {
         return characterContractFacade.updateCharacter(characterUpdateRequest);
     }
-
-    @DeleteMapping("characterId")
+    
+    @DeleteMapping("{characterId}")
     @DeleteCharacterSwagger
-    public Mono<Void> deleteCharacter(Integer characterId) {
+    public Mono<Void> deleteCharacter(
+        @PathVariable
+        String characterId) {
         return characterContractFacade.deleteCharacter(characterId);
     }
 }

@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 public class CharacterUpdateContractRequest {
+    private String id;
     private String name;
     private ClassTypeEnum characterClass;
     private RaceTypeEnum race;
