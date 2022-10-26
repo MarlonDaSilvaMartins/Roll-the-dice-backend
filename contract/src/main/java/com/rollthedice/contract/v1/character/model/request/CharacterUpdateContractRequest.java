@@ -1,20 +1,17 @@
-package com.rollthedice.impl.character.repository.entity;
+package com.rollthedice.contract.v1.character.model.request;
 
 import com.rollthedice.commons.utils.enums.ClassTypeEnum;
 import com.rollthedice.commons.utils.enums.RaceTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Data
-@Document(collection = "character")
-public class CharacterEntity{
-    @Id
-    private Integer id;
+public class CharacterUpdateContractRequest {
     private String name;
     private ClassTypeEnum characterClass;
     private RaceTypeEnum race;

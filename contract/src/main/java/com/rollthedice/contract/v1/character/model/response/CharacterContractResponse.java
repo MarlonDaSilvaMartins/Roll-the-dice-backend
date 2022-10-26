@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 public class CharacterContractResponse {
+    private Integer Id;
     private String name;
     private ClassTypeEnum characterClass;
     private RaceTypeEnum race;

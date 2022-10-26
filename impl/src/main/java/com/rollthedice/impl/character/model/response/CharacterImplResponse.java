@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 public class CharacterImplResponse {
+    private Integer Id;
     private String name;
     private ClassTypeEnum characterClass;
     private RaceTypeEnum race;
