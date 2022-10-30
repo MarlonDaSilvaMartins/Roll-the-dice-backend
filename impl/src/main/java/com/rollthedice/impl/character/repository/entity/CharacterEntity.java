@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "character")
 public class CharacterEntity{
     @Id
-    private Integer id;
+    private String id;
     private String name;
     private ClassTypeEnum characterClass;
     private RaceTypeEnum race;
