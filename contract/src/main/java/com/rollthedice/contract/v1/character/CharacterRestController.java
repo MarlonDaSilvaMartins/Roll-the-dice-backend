@@ -16,6 +16,7 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 @Api(tags = "character controller")
 @RequestMapping(path = "/v1/character")
+@CrossOrigin
 public class CharacterRestController {
     
     private final CharacterContractFacade characterContractFacade;
