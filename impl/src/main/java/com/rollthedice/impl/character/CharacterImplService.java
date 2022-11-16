@@ -1,5 +1,7 @@
 package com.rollthedice.impl.character;
 
+import java.util.Objects;
+
 import com.rollthedice.commons.utils.exceptions.datanotfound.DataNotFoundException;
 import com.rollthedice.impl.character.mapper.request.CharacterImplToEntityRequestMapper;
 import com.rollthedice.impl.character.mapper.request.CharacterUpdateToEntityRequestMapper;
@@ -58,6 +60,9 @@ public class CharacterImplService {
             .flatMap(characterEntity -> {
                 var entity = CharacterUpdateToEntityRequestMapper.mapFrom(characterUpdateImplRequest);
                 entity.setId(characterEntity.getId());
+                if (Objects.isNull(characterUpdateImplRequest.getLevel())) {
+                    entity.setLevel(characterEntity.getLevel());
+                }
                 return characterRepository.save(entity);
             }).map(CharacterEntityToImplResponseMapper::mapFrom);
     }
