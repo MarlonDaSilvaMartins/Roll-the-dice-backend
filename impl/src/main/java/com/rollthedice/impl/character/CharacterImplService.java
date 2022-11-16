@@ -38,8 +38,10 @@ public class CharacterImplService {
     }
     
     private Mono<Void> validateCharacterPoints(CharacterImplRequest characterImplRequest) {
-        if (characterPointsSum(characterImplRequest) > 40)
-            return Mono.error(() -> new DataNotFoundException("pontos de personagem não pode ser maior que 40"));
+        var totalPontos = characterImplRequest.getLevel() * 40;
+        if (characterPointsSum(characterImplRequest) > totalPontos)
+            return Mono.error(() ->
+                new DataNotFoundException("pontos de personagem não pode ser maior que " + totalPontos));
         return Mono.empty();
     }
     
