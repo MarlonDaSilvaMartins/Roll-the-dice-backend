@@ -1,6 +1,7 @@
 package com.rollthedice.contract.v1.character.model.request;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
 
@@ -16,9 +17,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 public class CharacterContractRequest {
-    @NotBlank
+    @NotBlank(message = "Nome não pode ser nulo")
     private String name;
+    @NotEmpty(message = "Classe não pode ser nulo")
     private ClassTypeEnum characterClass;
+    @NotEmpty(message = "Raça não pode ser nulo")
     private RaceTypeEnum race;
     @Positive
     @Builder.Default
