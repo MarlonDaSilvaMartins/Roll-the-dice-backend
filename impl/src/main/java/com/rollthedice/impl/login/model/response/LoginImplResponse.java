@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 public class LoginImplResponse {
+    private String id;
     private String name;
     private String login;
 }
