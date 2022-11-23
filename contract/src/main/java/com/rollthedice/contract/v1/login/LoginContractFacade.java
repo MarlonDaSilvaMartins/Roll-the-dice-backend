@@ -17,8 +17,8 @@ public class LoginContractFacade {
     
     private final LoginImplFacade loginImplFacade;
     
-    public Mono<LoginContractResponse> getLogin(LoginContractRequest loginContractRequest){
-        return loginImplFacade.getLogin(LoginContractToImplRequestMapper.mapFrom(loginContractRequest))
+    public Mono<LoginContractResponse> getLogin(String id){
+        return loginImplFacade.getLogin(id)
             .map(LoginImplToContractResponse::mapFrom);
     }
     

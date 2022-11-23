@@ -17,8 +17,8 @@ public class LoginImplService {
     
     private final LoginRepository loginRepository;
     
-    public Mono<LoginImplResponse> getLogin(LoginImplRequest loginImplRequest) {
-        return loginRepository.save(LoginEntityToImplMapper.mapFrom(loginImplRequest))
+    public Mono<LoginImplResponse> getLogin(String id) {
+        return loginRepository.findById(id)
             .map(LoginImplToEntityMapper::mapFrom);
     }
     

@@ -14,15 +14,14 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping(path = "/v1/login")
 @Api(tags = "Login Controller")
+@CrossOrigin
 public class LoginRestController {
     private final LoginContractFacade loginContractFacade;
-    
-    @GetMapping
+
+    @GetMapping("/{id}")
     @GetLoginSwagger
-    public Mono<LoginContractResponse> getLogin(
-        @RequestBody
-            LoginContractRequest loginContractRequest) {
-        return loginContractFacade.getLogin(loginContractRequest);
+    public Mono<LoginContractResponse> getLogin(@PathVariable String id) {
+        return loginContractFacade.getLogin(id);
     }
     
     @GetMapping("/auth")

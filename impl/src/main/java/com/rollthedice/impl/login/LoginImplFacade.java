@@ -12,8 +12,8 @@ public class LoginImplFacade {
     
     private final LoginImplService loginImplService;
     
-    public Mono<LoginImplResponse> getLogin(LoginImplRequest loginImplRequest){
-        return loginImplService.getLogin(loginImplRequest);
+    public Mono<LoginImplResponse> getLogin(String id){
+        return loginImplService.getLogin(id);
     }
     
     public Mono<LoginImplResponse> getAuthorization(AuthorizationImplRequest authorizationImplRequest){
